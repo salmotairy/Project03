@@ -1,17 +1,94 @@
 <h1><%=@user.name%>'s Profile</h1>
+<h2>Username: <%=@user.username%></h2>
+<h2>Email: <%=@user.email%></h2>
 
-<h2>
-Email : <%= @user.email %>
-</h2>
 
 <h2>Your Cards</h2>
 
+<div class="cards cards-show">
 <% @user.cards.each do |c| %>
-    <p><%= c.to_json %></p>
+  <a class="stack" href="/cards/<%= c.id%>">
+        <div class="card top">
+          <div class="contents">
+            <h2><strong><%=c.company_name%></strong></h2>
+            <h3><%= c.name %></h3>
+            <%= c.role %><br /><br /><span>✉️</span
+            ><%= c.email %><br /><span>📞</span><%=c.phone_number %><br /><br /><br />City, Co
+          </div>
+        </div>
+        <div class="card mid-top">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card middle">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card mid-bottom">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card bottom">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card shadow"></div>
+      </a>
 <% end %>
+</div>
+
 
 <h2>Your Stacks</h2>
-
 <% @user.stacks.each do |s| %>
-    <p><%= s.to_json %></p>
+    <div>
+        <p><%= s.name %></p>
+        <% c = s.cards.first %>
+        <div class="cards cards-test">
+            <a class="stack" href="/stacks/<%= s.id %>">
+                <div class="card top">
+                    <div class="contents">
+                        <h2>
+                            <strong>
+                                <%=c.company_name%>
+                            </strong>
+                        </h2>
+                        <h3>
+                            <%= c.name %>
+                        </h3>
+                        <%= c.role %>
+                        <br /><br />
+                        <span>✉️</span>
+                        <%= c.email %>
+                        <br/>
+                        <span>📞</span>
+                        <%=c.phone_number %>
+                        <br /><br /><br />
+                        City, Co
+                    </div>
+                </div>
+                <div class="card mid-top">
+                    <div class="contents">
+                        <div class="city">City, Co</div>
+                    </div>
+                </div>
+                <div class="card middle">
+                    <div class="contents">
+                        <div class="city">City, Co</div>
+                    </div>
+                </div>
+                <div class="card mid-bottom">
+                    <div class="contents">
+                        <div class="city">City, Co</div>
+                    </div>
+                </div>
+                <div class="card bottom">
+                    <div class="contents">
+                        <div class="city">City, Co</div>
+                    </div>
+                </div>
+                <div class="card shadow"></div>
+            </a>
+        </div>
+    </div>
 <% end %>
+
+
+
+
+

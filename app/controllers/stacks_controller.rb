@@ -11,6 +11,13 @@ class StacksController < ApplicationController
 
   def new
     @stack = Stack.new
+    all_cards = Card.all
+    @not_my_cards = []
+    all_cards.each do |c|
+      if c.user.id != current_user.id
+        @not_my_cards.push c
+      end
+    end
   end
 
   def create
@@ -20,6 +27,13 @@ class StacksController < ApplicationController
 
   def edit
     @stack = Stack.find_by(id: params[:id])
+    all_cards = Card.all
+    @not_my_cards = []
+    all_cards.each do |c|
+      if c.user.id != current_user.id
+        @not_my_cards.push c
+      end
+    end
   end
 
   def update

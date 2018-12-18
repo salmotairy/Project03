@@ -5,7 +5,7 @@ Stack Name: <%= form.text_field :name %>
 
 <div>
 <%= form.label :card_id, "Select Cards to make stack" %> <br>
-<%= form.collection_check_boxes :card_ids, Card.all, :id, :name %>
+<%= form.collection_check_boxes :card_ids, @not_my_cards, :id, :name %>
 </div>
 
 

@@ -16,6 +16,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   position: relative;
+  padding: 10px;
 }
 /* Grid */
 .cards,
@@ -25,16 +26,32 @@ body {
 .cards {
   --scroll: 0px;
   display: grid;
-  grid-template: repeat(48, var(--cardH)) / var(--cardW);
+  grid-template: repeat(1, var(--cardH)) / var(--cardW);
+  grid-gap: 1.5em;
+  /* outline: 1px solid red; */
+  /* padding-bottom: calc(var(--cardH) * 3); */
+  position: relative;
+  top: 80%;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%, calc(-50% + var(--scroll))) rotateX(45deg)
+    rotateZ(45deg) translateY(calc(50% - var(--scroll)));
+}
+
+.cards-show {
+  display: grid;
+  grid-template: repeat(1, var(--cardH)) / var(--cardW);
   grid-gap: 1.5em;
   /* outline: 1px solid red; */
   padding-bottom: calc(var(--cardH) * 3);
   position: relative;
   top: 50%;
   left: 50%;
-  margin: auto;
-  transform: translate(-50%, calc(-50% + var(--scroll))) rotateX(45deg)
-    rotateZ(45deg) translateY(calc(50% - var(--scroll)));
+  margin: 0;
+  margin-left: 30px;
+  transform: translate(-50%, calc(-50% + var(--scroll))) rotateX(0deg)
+    rotateZ(0deg) translateY(calc(50% - var(--scroll)));
+  height: 100%;
 }
 .stack {
   display: block;
@@ -153,16 +170,22 @@ body {
 /* Alter grid at breakpoints */
 @media screen and (min-width: 361px) {
   .cards {
-    grid-template: repeat(24, var(--cardH)) / repeat(2, var(--cardW));
+    grid-template: repeat(1, var(--cardH)) / repeat(2, var(--cardW));
   }
 }
 @media screen and (min-width: 601px) {
   .cards {
-    grid-template: repeat(16, var(--cardH)) / repeat(3, var(--cardW));
+    grid-template: repeat(1, var(--cardH)) / repeat(3, var(--cardW));
   }
 }
 @media screen and (min-width: 841px) {
   .cards {
-    grid-template: repeat(12, var(--cardH)) / repeat(4, var(--cardW));
+    grid-template: repeat(1, var(--cardH)) / repeat(4, var(--cardW));
   }
+}
+
+.cards-test {
+  position: relative;
+  top: 300px;
+  margin-left: 40px;
 }
