@@ -1,0 +1,13 @@
+<h1><%=@stack.name%></h1>
+
+<ul>
+
+<% @stack.cards.each do |c| %>
+  <li>
+  <%= link_to(c.name, c) %>
+  </li>
+<% end %>
+
+</ul>
+<%= link_to "Edit Stack", edit_stack_path(@stack) %> <br>
+<%= link_to "Delete Stack", stack_path(@stack), method: :delete %>

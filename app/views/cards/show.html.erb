@@ -1,0 +1,43 @@
+<h1>Card information</h1>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<div class="cards">
+  <a class="stack" href="#">
+        <div class="card top">
+          <div class="contents">
+            <h2><strong><%=@card.company_name%></strong></h2>
+            <h3><%= @card.name %></h3>
+            <%= @card.role %><br /><br /><span>✉️</span
+            ><%= @card.email %><br /><span>📞</span><%=@card.phone_number %><br /><br /><br />Riyadh, KSA
+          </div>
+        </div>
+        <div class="card mid-top">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card middle">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card mid-bottom">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card bottom">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card shadow"></div>
+      </a>
+</div>
+
+
+
+
+
+
+
+<%= link_to "Edit Card", edit_card_path(@card) %> <br>
+<%= link_to "Delete Card", card_path(@card), method: :delete %>

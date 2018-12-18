@@ -1,0 +1,17 @@
+<h1><%=@user.name%>'s Profile</h1>
+
+<h2>
+Email : <%= @user.email %>
+</h2>
+
+<h2>Your Cards</h2>
+
+<% @user.cards.each do |c| %>
+    <p><%= c.to_json %></p>
+<% end %>
+
+<h2>Your Stacks</h2>
+
+<% @user.stacks.each do |s| %>
+    <p><%= s.to_json %></p>
+<% end %>

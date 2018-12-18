@@ -1,0 +1,11 @@
+<h1>Stacks</h1>
+<ul>
+
+<% @stacks.each do |s| %>
+  <li>
+  <%= link_to(s.name, stack_path(s)) %>
+  </li>
+<% end %>
+
+</ul>
+

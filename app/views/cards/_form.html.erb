@@ -1,0 +1,33 @@
+<%= form_for @card  do |form| %>
+
+<div>
+<%= form.label :name, "Card Name:" %>
+ <%= form.text_field :name  %>
+</div>
+<br>
+
+<div>
+<%= form.label :name, "Name:" %>
+ <%= form.text_field :name %>
+</div>
+
+<%= form.label :role, "Job Title:" %>
+<%= form.text_field :role %>
+</div>
+<div>
+<%= form.label :company_name, "Company Name:" %>
+<%= form.text_field :company_name %>
+</div>
+<div>
+<%= form.label :email, "Email:" %>
+<%= form.email_field :email, value: current_user.email %>
+</div>
+<div>
+<%= form.label :phone_number, "Phone Number:" %>
+<%= form.text_field :phone_number %>
+</div>
+
+<div>
+<%= form.submit %>
+</div>
+<% end  %>

@@ -1,0 +1,29 @@
+<h1>Cards</h1>
+<div class="cards">
+<% @cards.each do |c| %>
+
+  <a class="stack" href="/cards/<%= c.id%>">
+        <div class="card top">
+          <div class="contents">
+            <h2><strong><%=c.company_name%></strong></h2>
+            <h3><%= c.name %></h3>
+            <%= c.role %><br /><br /><span>✉️</span
+            ><%= c.email %><br /><span>📞</span><%=c.phone_number %><br /><br /><br />Riyadh, KSA
+          </div>
+        </div>
+        <div class="card mid-top">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card middle">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card mid-bottom">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card bottom">
+          <div class="contents"><div class="city">Riyadh, KSA</div></div>
+        </div>
+        <div class="card shadow"></div>
+      </a>
+<% end %>
+</div>

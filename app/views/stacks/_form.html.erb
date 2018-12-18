@@ -1,0 +1,16 @@
+<%= form_for @stack  do |form| %>
+<div>
+Stack Name: <%= form.text_field :name %>
+</div>
+
+<div>
+<%= form.label :card_id, "Select Cards to make stack" %> <br>
+<%= form.collection_check_boxes :card_ids, Card.all, :id, :name %>
+</div>
+
+
+<div>
+<br>
+<%= form.submit  %>
+</div>
+<% end  %>
