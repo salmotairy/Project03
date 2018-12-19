@@ -1,10 +1,12 @@
 <h1><%=@user.name%>'s Profile</h1>
 <h2>Username: <%=@user.username%></h2>
 <h2>Email: <%=@user.email%></h2>
-<% if (current_user.username.downcase != params[:id]) %>
-<a href="/users/<%=@user.username%>/connect">
-<button>connect</button>
-</a>
+<% if @user != current_user %>
+    <% if Approval.where(user_one_id: current_user.id, user_two_id: @user.id).length == 0 %>
+        <a href="/users/<%=@user.username%>/connect">
+            <button>connect</button>
+        </a>
+    <% end %>
 <% else %>
 
     <h3>Pending Approvals</h3>
@@ -18,11 +20,13 @@
     <% end %>
 
 <% end %>
+<% if @user == current_user || Approval.where(user_one_id: current_user.id, user_two_id: @user.id, approval: true).length > 0 || Approval.where(user_one_id: @user.id , user_two_id: current_user.id, approval: true).length > 0%>
+
+
+
 <h2>Your Cards</h2>
 <div class="cards cards-show">
 <% @user.cards.each do |c| %>
-
-
   <a class="stack" href="/cards/<%= c.id%>">
         <div class="card top">
           <div class="contents">
@@ -32,14 +36,17 @@
             ><%= c.email %><br /><span>📞</span><%=c.phone_number %><br /><br /><br />City, Co
           </div>
         </div>
-        
       </a>
-
 <% end %>
 </div>
+<%end%>
 
+
+
+
+
+<% if @user == @current_user %>
 <%= link_to "Creat new Card", new_card_path %> <br>
-
 <h2>Your Stacks</h2>
 <% @user.stacks.each do |s| %>
     <% if s.cards.length > 0 %>
@@ -103,3 +110,4 @@
 
 
 
+<% end %>
