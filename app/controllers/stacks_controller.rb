@@ -5,6 +5,12 @@ class StacksController < ApplicationController
     @stacks = Stack.all
   end
 
+  def your_stacks
+    user = User.find_by username: params[:username]
+    @stacks = user.stacks
+    render :index
+  end
+
   def show
     @stack = Stack.find_by(id: params[:id])
   end
@@ -38,7 +44,7 @@ class StacksController < ApplicationController
 
   def update
     stack = Stack.find_by(id: params[:id])
-    stack = Stack.create(stack_params)
+    stack.update(stack_params)
     redirect_to stack_path(stack)
   end
 

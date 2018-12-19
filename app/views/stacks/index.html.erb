@@ -1,11 +1,57 @@
 <h1>Stacks</h1>
-<ul>
+
 
 <% @stacks.each do |s| %>
-  <li>
-  <%= link_to(s.name, stack_path(s)) %>
-  </li>
+    <% if s.cards.length > 0 %>
+        <div>
+            <p><%= s.name %></p>
+            <% c = s.cards.first %>
+            <div class="cards cards-test">
+                <a class="stack" href="/stacks/<%= s.id %>">
+                    <div class="card top top-show">
+                        <div class="contents">
+                            <h2>
+                                <strong>
+                                    <%=c.company_name%>
+                                </strong>
+                            </h2>
+                            <h3>
+                                <%= c.name %>
+                            </h3>
+                            <%= c.role %>
+                            <br /><br />
+                            <span>✉️</span>
+                            <%= c.email %>
+                            <br/>
+                            <span>📞</span>
+                            <%=c.phone_number %>
+                            <br /><br /><br />
+                            City, Co
+                        </div>
+                    </div>
+                    <div class="card mid-top">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
+                    </div>
+                    <div class="card middle">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
+                    </div>
+                    <div class="card mid-bottom">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
+                    </div>
+                    <div class="card bottom">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
+                    </div>
+                    <div class="card shadow"></div>
+                </a>
+            </div>
+        </div>
+    <% end %>
 <% end %>
-
-</ul>
-

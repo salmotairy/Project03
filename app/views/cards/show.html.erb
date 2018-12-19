@@ -8,7 +8,7 @@
 </div>
 
 <div class="cards cards-show">
-  <a class="stack" href="#">
+  <a class="stack" href="/cards/<%= @card.id%>">
         <div class="card top">
           <div class="contents">
             <h2><strong><%=@card.company_name%></strong></h2>
@@ -17,19 +17,6 @@
             ><%= @card.email %><br /><span>📞</span><%=@card.phone_number %><br /><br /><br />Riyadh, KSA
           </div>
         </div>
-        <div class="card mid-top">
-          <div class="contents"><div class="city">Riyadh, KSA</div></div>
-        </div>
-        <div class="card middle">
-          <div class="contents"><div class="city">Riyadh, KSA</div></div>
-        </div>
-        <div class="card mid-bottom">
-          <div class="contents"><div class="city">Riyadh, KSA</div></div>
-        </div>
-        <div class="card bottom">
-          <div class="contents"><div class="city">Riyadh, KSA</div></div>
-        </div>
-        <div class="card shadow"></div>
       </a>
 </div>
 

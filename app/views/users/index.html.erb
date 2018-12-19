@@ -3,7 +3,7 @@
 
 <% @users.each do |u| %>
   <li>
-  <%= link_to(u.name, u) %>
+  <%= link_to(u.name, "/users/#{u.username}") %>
   </li>
 <% end %>
 

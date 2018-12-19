@@ -1,12 +1,28 @@
 <h1><%=@user.name%>'s Profile</h1>
 <h2>Username: <%=@user.username%></h2>
 <h2>Email: <%=@user.email%></h2>
+<% if (current_user.username.downcase != params[:id]) %>
+<a href="/users/<%=@user.username%>/connect">
+<button>connect</button>
+</a>
+<% else %>
 
+    <h3>Pending Approvals</h3>
+    <% @pending_approvals.each do |a| %>
+        <p>
+            <%= a.owner.name %> 
+            <a href="/approvals/<%= a.id %>/confirm">
+                <button>Confirm</button>
+            </a>
+        </p>
+    <% end %>
 
+<% end %>
 <h2>Your Cards</h2>
-
 <div class="cards cards-show">
 <% @user.cards.each do |c| %>
+
+
   <a class="stack" href="/cards/<%= c.id%>">
         <div class="card top">
           <div class="contents">
@@ -16,79 +32,74 @@
             ><%= c.email %><br /><span>📞</span><%=c.phone_number %><br /><br /><br />City, Co
           </div>
         </div>
-        <div class="card mid-top">
-          <div class="contents"><div class="city">City, Co</div></div>
-        </div>
-        <div class="card middle">
-          <div class="contents"><div class="city">City, Co</div></div>
-        </div>
-        <div class="card mid-bottom">
-          <div class="contents"><div class="city">City, Co</div></div>
-        </div>
-        <div class="card bottom">
-          <div class="contents"><div class="city">City, Co</div></div>
-        </div>
-        <div class="card shadow"></div>
+        
       </a>
+
 <% end %>
 </div>
 
+<%= link_to "Creat new Card", new_card_path %> <br>
 
 <h2>Your Stacks</h2>
 <% @user.stacks.each do |s| %>
-    <div>
-        <p><%= s.name %></p>
-        <% c = s.cards.first %>
-        <div class="cards cards-test">
-            <a class="stack" href="/stacks/<%= s.id %>">
-                <div class="card top">
-                    <div class="contents">
-                        <h2>
-                            <strong>
-                                <%=c.company_name%>
-                            </strong>
-                        </h2>
-                        <h3>
-                            <%= c.name %>
-                        </h3>
-                        <%= c.role %>
-                        <br /><br />
-                        <span>✉️</span>
-                        <%= c.email %>
-                        <br/>
-                        <span>📞</span>
-                        <%=c.phone_number %>
-                        <br /><br /><br />
-                        City, Co
+    <% if s.cards.length > 0 %>
+        <div>
+            <p><%= s.name %></p>
+            <% c = s.cards.first %>
+            <div class="cards cards-test">
+                <a class="stack" href="/stacks/<%= s.id %>">
+                    <div class="card top top-show">
+                        <div class="contents">
+                            <h2>
+                                <strong>
+                                    <%=c.company_name%>
+                                </strong>
+                            </h2>
+                            <h3>
+                                <%= c.name %>
+                            </h3>
+                            <%= c.role %>
+                            <br /><br />
+                            <span>✉️</span>
+                            <%= c.email %>
+                            <br/>
+                            <span>📞</span>
+                            <%=c.phone_number %>
+                            <br /><br /><br />
+                            City, Co
+                        </div>
                     </div>
-                </div>
-                <div class="card mid-top">
-                    <div class="contents">
-                        <div class="city">City, Co</div>
+                    <div class="card mid-top">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
                     </div>
-                </div>
-                <div class="card middle">
-                    <div class="contents">
-                        <div class="city">City, Co</div>
+                    <div class="card middle">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
                     </div>
-                </div>
-                <div class="card mid-bottom">
-                    <div class="contents">
-                        <div class="city">City, Co</div>
+                    <div class="card mid-bottom">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
                     </div>
-                </div>
-                <div class="card bottom">
-                    <div class="contents">
-                        <div class="city">City, Co</div>
+                    <div class="card bottom">
+                        <div class="contents">
+                            <div class="city">City, Co</div>
+                        </div>
                     </div>
-                </div>
-                <div class="card shadow"></div>
-            </a>
+                    <div class="card shadow"></div>
+                </a>
+            </div>
         </div>
-    </div>
+    <% end %>
 <% end %>
 
 
+
+
+<%= link_to "Creat new Stack", new_stack_path %> <br>
 
 
 

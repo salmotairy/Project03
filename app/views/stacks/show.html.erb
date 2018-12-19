@@ -1,13 +1,33 @@
 <h1><%=@stack.name%></h1>
 
-<ul>
-
+<div class="cards cards-show">
 <% @stack.cards.each do |c| %>
-  <li>
-  <%= link_to(c.name, c) %>
-  </li>
+  <a class="stack" href="/cards/<%= c.id%>">
+        <div class="card top">
+          <div class="contents">
+            <h2><strong><%=c.company_name%></strong></h2>
+            <h3><%= c.name %></h3>
+            <%= c.role %><br /><br /><span>✉️</span
+            ><%= c.email %><br /><span>📞</span><%=c.phone_number %><br /><br /><br />City, Co
+          </div>
+        </div>
+        <div class="card mid-top">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card middle">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card mid-bottom">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card bottom">
+          <div class="contents"><div class="city">City, Co</div></div>
+        </div>
+        <div class="card shadow"></div>
+      </a>
 <% end %>
+</div>
 
-</ul>
+
 <%= link_to "Edit Stack", edit_stack_path(@stack) %> <br>
 <%= link_to "Delete Stack", stack_path(@stack), method: :delete %>
