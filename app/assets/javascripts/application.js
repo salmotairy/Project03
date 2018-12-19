@@ -14,7 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-window.addEventListener("scroll", scrollGrid);
+// window.addEventListener("scroll", scrollGrid);
 window.addEventListener("wheel", noShakeScroll);
 
 function scrollGrid() {
